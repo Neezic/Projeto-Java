@@ -1,3 +1,4 @@
+package Modelo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class Departamento {
     public Funcionario getGerente(){
         return gerente;
     }
-    public void setGerente(){
+    public void setGerente(Funcionario gerente){
         this.gerente = gerente;
     }
 

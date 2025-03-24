@@ -9,11 +9,14 @@ public class Funcionario {
     private Departamento departamento;
     private Cargo cargo;
 
-    public Funcionario(String nome, String cpf, LocalDate dataAdmissao){
+    public Funcionario(String nome,int id, String cpf, LocalDate dataAdmissao){
         this.nome = nome;
         this.cpf = cpf;
         this.dataAdmissao = dataAdmissao;
-
+        this.id = id;
+    }
+    public int getId(){
+        return id;
     }
     public String getnome(){
         return nome;
@@ -25,6 +28,9 @@ public class Funcionario {
         return dataAdmissao;
     }
 
+    public void setId(int id){
+        this.id = id;
+    }
     public void setnome(String nome){
         this.nome = nome;
     }
