@@ -1,4 +1,4 @@
-package Modelo;
+package main.java.modelo;
 import java.time.LocalDateTime;
 
 public class RegistraPonto {
@@ -9,12 +9,22 @@ public class RegistraPonto {
     private String observacao;
 
     public RegistraPonto(){}
-    public RegistraPonto(Funcionario funcionario, LocalDateTime entrada, LocalDateTime saida){
+    public RegistraPonto(Funcionario funcionario, LocalDateTime entrada, LocalDateTime saida, int id, String observacao){
         this.funcionario = funcionario;
         this.dataHoraEntrada = entrada;
         this.dataHoraSaida = saida;
+        this.id = id;
+        this.observacao = observacao;
     }
-
+    public RegistraPonto(Funcionario funcionario, LocalDateTime dataHoraEntrada){
+        this(0,funcionario,dataHoraEntrada,null,null);
+    }
+    public String getObservacao(){
+        return observacao;
+    }
+    public int getId(){
+        return id;
+    }
     public Funcionario getfuncionario(){
         return funcionario;
     }
@@ -24,7 +34,12 @@ public class RegistraPonto {
     public LocalDateTime gethoraSaida(){
         return dataHoraSaida;
     }
-
+    public void setObservacao(String observacao){
+        this.observacao = observacao;
+    }
+    public void setId(int id){
+        this.id = id;
+    }
     public void setFuncionario(Funcionario funcionario){
         this.funcionario = funcionario;
     }

@@ -1,7 +1,7 @@
-package DAO;
+package main.java.dao;
 
-import Modelo.RegistraPonto;
-import Modelo.Funcionario;
+import main.java.modelo.RegistraPonto;
+import main.java.modelo.Funcionario;
 import java.util.ArrayList;
 import java.util.List;
 
