@@ -1,4 +1,12 @@
-package main.java.modelo;
+/* 
+ * @autor  Neezic, Loshad, MH.
+ * Classe para Registrar o horário do Ponto do Funcionario
+ * Exporta a classe de Funcionario e LocalDateTime
+ * 
+ * 
+ * 
+*/
+package modelo;
 import java.time.LocalDateTime;
 
 public class RegistraPonto {
@@ -7,8 +15,7 @@ public class RegistraPonto {
     private LocalDateTime dataHoraEntrada;
     private LocalDateTime dataHoraSaida;
     private String observacao;
-
-    public RegistraPonto(){}
+    
     public RegistraPonto(Funcionario funcionario, LocalDateTime entrada, LocalDateTime saida, int id, String observacao){
         this.funcionario = funcionario;
         this.dataHoraEntrada = entrada;
@@ -16,9 +23,7 @@ public class RegistraPonto {
         this.id = id;
         this.observacao = observacao;
     }
-    public RegistraPonto(Funcionario funcionario, LocalDateTime dataHoraEntrada){
-        this(0,funcionario,dataHoraEntrada,null,null);
-    }
+
     public String getObservacao(){
         return observacao;
     }

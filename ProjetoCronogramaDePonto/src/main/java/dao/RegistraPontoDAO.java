@@ -1,30 +1,38 @@
-package main.java.dao;
+package dao;
 
-import main.java.modelo.RegistraPonto;
-import main.java.modelo.Funcionario;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.Funcionario;
+import modelo.RegistraPonto;
 
 
 public class RegistraPontoDAO {
-    private static List<RegistroPonto> registros = new ArrayList<>();
+    private static List<RegistraPonto> registros = new ArrayList<>();
     private static int proximoId = 1;
     
-    public void salvar(RegistroPonto registro){
+    public void salvar(RegistraPonto registro){
         if(registro.getId() == 0 ){
             registro.setId(proximoId++);
+            registros.add(registro);
+        } else {
+            for (int i = 0; i < registros.size();i++){
+                if (registros.get(i).getId() == registro.getId()){
+                    registros.set(i,registro);
+                    return;
+                }
+            }
         }
-        registro.add(registro);
+        
     }
-    public RegistroPonto buscarRegistroAberto(Funcionario funcionario){
+    public RegistraPonto buscarRegistroAberto(Funcionario funcionario){
         return registros.stream()
-        .filter( r -> r.getfuncionario().equals(funcionario) && r.getHoraSaida() == null)
+        .filter( r -> r.getfuncionario().equals(funcionario) && r.gethoraSaida() == null)
         .findFirst()
         .orElse(null);
     }
-    public List<RegistroPonto> listarPorFuncionario(Funcionario funcionario){
-        List<RegistroPonto> resultado = new ArrayList<>();
-        for(RegistroPonto r : registros){
+    public List<RegistraPonto> listarPorFuncionario(Funcionario funcionario){
+        List<RegistraPonto> resultado = new ArrayList<>();
+        for(RegistraPonto r : registros){
             if(r.getfuncionario().equals(funcionario)){
                 resultado.add(r);
             }

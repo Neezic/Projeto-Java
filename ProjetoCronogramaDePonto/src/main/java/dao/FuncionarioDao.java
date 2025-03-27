@@ -1,10 +1,10 @@
-package DAO;
+package dao;
 
-import Modelo.Funcionario;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import modelo.Funcionario;
 
 public class FuncionarioDao {
     private static Map<Integer,Funcionario> funcionarios = new HashMap<>();
@@ -20,7 +20,7 @@ public class FuncionarioDao {
     public Funcionario buscarPorId(int id){
         return funcionarios.get(id);
     }
-    public Funcionario buscarPorCPF(string cpf){
+    public Funcionario buscarPorCPF(String cpf){
         return funcionarios.values().stream()
         .filter(f -> f.getcpf().equals(cpf))
         .findFirst()
@@ -28,7 +28,7 @@ public class FuncionarioDao {
     }
 
     public List<Funcionario> listarTodos(){
-        return new ArrayList<>(Funcionarios.values());
+        return new ArrayList<>(funcionarios.values());
     }
     public void excluir(int id){
         funcionarios.remove(id);

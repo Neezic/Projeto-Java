@@ -1,4 +1,4 @@
-package Modelo;
+package modelo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,7 @@ public class Departamento {
     private List<Funcionario> funcionarios = new ArrayList<>();
 
     public Departamento(){}
+    
     public Departamento(String nome){
         this.nome = nome;
     }

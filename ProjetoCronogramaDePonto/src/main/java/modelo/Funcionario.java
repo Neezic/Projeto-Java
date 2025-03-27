@@ -1,4 +1,15 @@
-package Modelo;
+/*
+ * @autor Neezic, Loshad e MH 
+ * Classe para o registro de Funcionarios 
+ * A classe mais usada pois sem ela não se pode registrar pontos
+ * 
+ * 
+ */
+
+
+
+
+package modelo;
 import java.time.LocalDate;
 
 public class Funcionario {
@@ -9,6 +20,8 @@ public class Funcionario {
     private Departamento departamento;
     private Cargo cargo;
 
+    public Funcionario(){}
+    
     public Funcionario(String nome,int id, String cpf, LocalDate dataAdmissao){
         this.nome = nome;
         this.cpf = cpf;
