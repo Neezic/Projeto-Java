@@ -1,10 +1,9 @@
-package main.java.dao;
+package dao;
 
-import main.java.modelo.Funcionario;
-import main.java.modelo.RegistraPonto;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
+import modelo.Funcionario;
+import modelo.RegistraPonto;
 
 
 public class RegistraPontoDAO {
@@ -24,14 +23,15 @@ public class RegistraPontoDAO {
         if(registro.getId() == 0 ){
             registro.setId(proximoId++);
             registros.add(registro);
-        } else{
-            for (int i = 0; i < registros.size(); i++) {
-                if (registros.get(i).getId() == registro.getId()) {
-                    registros.set(i, registro);
+        } else {
+            for (int i = 0; i < registros.size();i++){
+                if (registros.get(i).getId() == registro.getId()){
+                    registros.set(i,registro);
                     return;
                 }
-        }    }           
-
+            }
+        }
+        
     }
     public RegistraPonto buscarRegistroAberto(Funcionario funcionario){
         return registros.stream()

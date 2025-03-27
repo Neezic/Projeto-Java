@@ -1,10 +1,10 @@
-package main.java.dao;
+package dao;
 
-import main.java.modelo.Funcionario;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import modelo.Funcionario;
 
 public class FuncionarioDao {
     private static Map<Integer,Funcionario> funcionarios = new HashMap<>();
