@@ -1,8 +1,8 @@
-package main.java.servico;
+package servico;
 
-import main.java.dao.RegistraPontoDAO;
-import main.java.modelo.Funcionario;
-import main.java.modelo.RegistraPonto;
+import dao.RegistraPontoDAO;
+import modelo.Funcionario;
+import modelo.RegistraPonto;
 import java.time.LocalDateTime;
 import java.util.List;
 

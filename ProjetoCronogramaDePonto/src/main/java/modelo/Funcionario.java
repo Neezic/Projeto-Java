@@ -22,7 +22,7 @@ public class Funcionario {
 
     public Funcionario(){}
     
-    public Funcionario(String nome,int id, String cpf, LocalDate dataAdmissao){
+    public Funcionario(String nome, String cpf, LocalDate dataAdmissao){
         this.nome = nome;
         this.cpf = cpf;
         this.dataAdmissao = dataAdmissao;

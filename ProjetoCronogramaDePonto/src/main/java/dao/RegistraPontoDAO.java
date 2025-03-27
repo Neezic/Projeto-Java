@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import modelo.Funcionario;
 import modelo.RegistraPonto;
 
