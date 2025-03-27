@@ -2,7 +2,7 @@ package modelo;
 import modelo.Funcionario;
 import servico.PontoService;
 import dao.FuncionarioDao;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
@@ -27,8 +27,8 @@ public class Main {
     }
 
     private static void cadastrarFuncionariosExemplo() {
-        Funcionario func1 = new Funcionario("João Silva", "123.456.789-00", LocalDate.now());
-        Funcionario func2 = new Funcionario("Maria Souza", "987.654.321-00", LocalDate.now());
+        Funcionario func1 = new Funcionario("João Silva", "123.456.789-00", LocalDateTime.now());
+        Funcionario func2 = new Funcionario("Maria Souza", "987.654.321-00", LocalDateTime.now());
         funcionarioDAO.salvar(func1);
         funcionarioDAO.salvar(func2);
     }
@@ -102,7 +102,7 @@ public class Main {
         try {
             pontoService.registrarEntrada(funcionarioAtual);
             System.out.println("\nEntrada registrada com sucesso em: " + 
-                LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
         } catch (IllegalStateException e) {
             System.out.println("\nErro: " + e.getMessage());
         }
@@ -112,7 +112,7 @@ public class Main {
         try {
             pontoService.registrarSaida(funcionarioAtual);
             System.out.println("\nSaída registrada com sucesso em: " + 
-                LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
         } catch (IllegalStateException e) {
             System.out.println("\nErro: " + e.getMessage());
         }

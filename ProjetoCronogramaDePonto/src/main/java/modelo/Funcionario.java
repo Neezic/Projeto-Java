@@ -10,19 +10,19 @@
 
 
 package modelo;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Funcionario {
     private int id;
     private String nome;
     private String cpf;
-    private LocalDate dataAdmissao;
+    private LocalDateTime dataAdmissao;
     private Departamento departamento;
     private Cargo cargo;
 
     public Funcionario(){}
     
-    public Funcionario(String nome, String cpf, LocalDate dataAdmissao){
+    public Funcionario(String nome, String cpf, LocalDateTime dataAdmissao){
         this.nome = nome;
         this.cpf = cpf;
         this.dataAdmissao = dataAdmissao;
@@ -36,7 +36,7 @@ public class Funcionario {
     public String getcpf(){
         return cpf;
     }
-    public LocalDate dataAdmissao(){
+    public LocalDateTime dataAdmissao(){
         return dataAdmissao;
     }
 
@@ -46,7 +46,7 @@ public class Funcionario {
     public void setnome(String nome){
         this.nome = nome;
     }
-    public void setdataAdmissao(LocalDate dataAdmissao){
+    public void setdataAdmissao(LocalDateTime dataAdmissao){
         this.dataAdmissao = dataAdmissao;
     }
     public void setcpf(String cpf){
