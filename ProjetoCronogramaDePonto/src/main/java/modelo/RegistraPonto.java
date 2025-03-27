@@ -15,13 +15,16 @@ public class RegistraPonto {
     private LocalDateTime dataHoraEntrada;
     private LocalDateTime dataHoraSaida;
     private String observacao;
-    
-    public RegistraPonto(Funcionario funcionario, LocalDateTime entrada, LocalDateTime saida, int id, String observacao){
+
+    public RegistraPonto(int id,Funcionario funcionario, LocalDateTime entrada, LocalDateTime saida, String observacao){
+        this.id = id;
         this.funcionario = funcionario;
         this.dataHoraEntrada = entrada;
         this.dataHoraSaida = saida;
-        this.id = id;
         this.observacao = observacao;
+    }
+    public RegistraPonto(Funcionario funcionario, LocalDateTime dataHoraEntrada){
+        this(0, funcionario, dataHoraEntrada, null, null);   
     }
 
     public String getObservacao(){
