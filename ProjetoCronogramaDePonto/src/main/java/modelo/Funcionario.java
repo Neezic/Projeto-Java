@@ -1,4 +1,4 @@
-package Modelo;
+package modelo;
 import java.time.LocalDate;
 
 public class Funcionario {
@@ -8,12 +8,11 @@ public class Funcionario {
     private LocalDate dataAdmissao;
     private Departamento departamento;
     private Cargo cargo;
-
-    public Funcionario(String nome,int id, String cpf, LocalDate dataAdmissao){
+    public Funcionario(){}
+    public Funcionario(String nome, String cpf, LocalDate dataAdmissao){
         this.nome = nome;
         this.cpf = cpf;
         this.dataAdmissao = dataAdmissao;
-        this.id = id;
     }
     public int getId(){
         return id;

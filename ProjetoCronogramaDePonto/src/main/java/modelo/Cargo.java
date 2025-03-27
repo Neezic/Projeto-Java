@@ -1,4 +1,4 @@
-package Modelo;
+package main.java.modelo;
 
 public class Cargo {
     private int id;
