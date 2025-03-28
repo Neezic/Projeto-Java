@@ -7,25 +7,28 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
+
+    // inicializando scanner e outros serviços para o sistema
     private static Scanner scanner = new Scanner(System.in);
     private static PontoService pontoService = new PontoService();
     private static FuncionarioDao funcionarioDAO = new FuncionarioDao();
-    private static Funcionario funcionarioAtual = null;
+    private static Funcionario funcionarioAtual = null; // variável para guardar o funcionário logado
 
     public static void main(String[] args) {
-        // Cadastro inicial de funcionários (simulando um "banco de dados")
+        // cadastrando funcionários iniciais de exemplo (simulando um "banco de dados")
         cadastrarFuncionariosExemplo();
         
-        // Menu principal
+        // loop principal que exibe o menu do sistema
         while (true) {
             if (funcionarioAtual == null) {
-                menuLogin();
+                menuLogin();  // exibe o menu de login se ninguém estiver logado
             } else {
-                menuPrincipal();
+                menuPrincipal();  // exibe o menu principal se o usuário estiver logado
             }
         }
     }
 
+    // criando dois funcionários de exemplo
     private static void cadastrarFuncionariosExemplo() {
         Funcionario func1 = new Funcionario("João Silva", "123.456.789-00", LocalDateTime.now());
         Funcionario func2 = new Funcionario("Maria Souza", "987.654.321-00", LocalDateTime.now());
@@ -33,6 +36,7 @@ public class Main {
         funcionarioDAO.salvar(func2);
     }
 
+    // menu que aparece quando o usuário não está logado
     private static void menuLogin() {
         System.out.println("\n=== SISTEMA DE PONTO ===");
         System.out.println("1. Login");
@@ -40,25 +44,28 @@ public class Main {
         System.out.print("Escolha uma opção: ");
         
         int opcao = scanner.nextInt();
-        scanner.nextLine(); // Limpar buffer
-        
+        scanner.nextLine(); // limpar buffer
+
+        // controlando a escolha do usuário no menu
         switch (opcao) {
             case 1:
                 fazerLogin();
                 break;
             case 2:
                 System.out.println("Saindo do sistema...");
-                System.exit(0);
+                System.exit(0); // sai do sistema
                 break;
             default:
                 System.out.println("Opção inválida!");
         }
     }
 
+    // método que faz o login do funcionário
     private static void fazerLogin() {
         System.out.print("\nDigite seu CPF (somente números): ");
         String cpf = scanner.nextLine();
         
+        // busca o funcionário pelo CPF
         funcionarioAtual = funcionarioDAO.buscarPorCPF(cpf);
         
         if (funcionarioAtual == null) {
@@ -68,6 +75,7 @@ public class Main {
         }
     }
 
+    // menu que aparece quando o usuário já está logado
     private static void menuPrincipal() {
         System.out.println("\n=== MENU PRINCIPAL ===");
         System.out.println("1. Registrar Entrada");
@@ -77,8 +85,9 @@ public class Main {
         System.out.print("Escolha uma opção: ");
         
         int opcao = scanner.nextInt();
-        scanner.nextLine(); // Limpar buffer
-        
+        scanner.nextLine(); // limpar buffer
+
+        // controlando a escolha do usuário no menu
         switch (opcao) {
             case 1:
                 registrarEntrada();
@@ -98,6 +107,7 @@ public class Main {
         }
     }
 
+    // registra a entrada do funcionário
     private static void registrarEntrada() {
         try {
             pontoService.registrarEntrada(funcionarioAtual);
@@ -108,6 +118,7 @@ public class Main {
         }
     }
 
+    // registra a saída do funcionário
     private static void registrarSaida() {
         try {
             pontoService.registrarSaida(funcionarioAtual);
@@ -118,6 +129,7 @@ public class Main {
         }
     }
 
+    // consulta os registros de entrada e saída do funcionário
     private static void consultarRegistros() {
         System.out.println("\n=== MEUS REGISTROS ===");
         var registros = pontoService.listarRegistros(funcionarioAtual);
@@ -129,6 +141,7 @@ public class Main {
         
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         
+        // exibe os registros de entrada e saída do funcionário
         for (var registro : registros) {
             System.out.println("\nData: " + registro.gethoraEntrada().format(formatter));
             System.out.println("Entrada: " + registro.gethoraEntrada().toLocalTime());
@@ -142,4 +155,3 @@ public class Main {
         }
     }
 }
-
