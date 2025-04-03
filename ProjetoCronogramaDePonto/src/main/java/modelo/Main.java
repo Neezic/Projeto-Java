@@ -1,10 +1,9 @@
 package modelo;
-import modelo.Funcionario;
-import servico.PontoService;
 import dao.FuncionarioDao;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import servico.PontoService;
 
 public class Main {
 

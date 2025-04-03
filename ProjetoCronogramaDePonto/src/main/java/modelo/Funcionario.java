@@ -2,10 +2,9 @@
  * Classe para o registro de Funcionarios 
  * A classe mais usada pois sem ela não se pode registrar pontos
  * 
+ * Começar a implementar Herança nessa classe.
  * 
  */
-
-
 // classe que representa um funcionário na empresa
 package modelo;
 

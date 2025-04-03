@@ -1,4 +1,8 @@
 // classe que representa o cargo de um funcionário
+/*
+ * Fazer a classe dao dessa classe.
+ * 
+ */
 package modelo;
 
 // classe Cargo

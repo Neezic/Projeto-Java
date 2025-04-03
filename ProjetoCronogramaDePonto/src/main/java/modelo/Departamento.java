@@ -1,4 +1,8 @@
 // classe que representa um departamento na empresa
+/*
+ * 
+ * Fazer a classe DAO dessa classe
+ */
 package modelo;
 
 import java.util.ArrayList;

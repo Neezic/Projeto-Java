@@ -77,7 +77,7 @@ public class RegistraPonto {
 
     // método para definir a hora de saída
     public void setSaida(LocalDateTime dataHoraSaida) {
-        this.dataHoraEntrada = dataHoraSaida; // define a hora de saída
+        this.dataHoraSaida = dataHoraSaida; // define a hora de saída
     }
 
     // método para calcular as horas trabalhadas entre entrada e saída
