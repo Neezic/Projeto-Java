@@ -1,10 +1,9 @@
 package modelo;
-import modelo.Funcionario;
-import servico.PontoService;
 import dao.FuncionarioDao;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import servico.PontoService;
 
 public class Main {
 
@@ -30,8 +29,8 @@ public class Main {
 
     // criando dois funcionários de exemplo
     private static void cadastrarFuncionariosExemplo() {
-        Funcionario func1 = new Funcionario("João Silva", "123.456.789-00", LocalDateTime.now());
-        Funcionario func2 = new Funcionario("Maria Souza", "987.654.321-00", LocalDateTime.now());
+        Funcionario func1 = new Funcionario("João Silva", "12345678900", LocalDateTime.now());
+        Funcionario func2 = new Funcionario("Maria Souza", "98765432100", LocalDateTime.now());
         funcionarioDAO.salvar(func1);
         funcionarioDAO.salvar(func2);
     }
