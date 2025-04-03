@@ -10,66 +10,30 @@ package modelo;
 
 import java.time.LocalDateTime;
 
-public class Funcionario {
+public class Funcionario extends Usuario{
 
     // atributos que definem um funcionário
-    private int id;  // id único do funcionário
-    private String nome;  // nome do funcionário
-    private String cpf;   // CPF do funcionário
     private LocalDateTime dataAdmissao;  // data de admissão do funcionário
     private Departamento departamento;  // departamento em que o funcionário trabalha
     private Cargo cargo;  // cargo do funcionário
 
-    // construtor sem parâmetros
-    public Funcionario(){}
-
     // construtor que define o nome, cpf e data de admissão
-    public Funcionario(String nome, String cpf, LocalDateTime dataAdmissao){
-        this.nome = nome;
-        this.cpf = cpf;
-        this.dataAdmissao = dataAdmissao;
+    public Funcionario(String nome, String cpf,Departamento departamento, Cargo cargo){
+        super(nome,cpf);
+        this.departamento = departamento;
+        this.cargo = cargo;
     }
 
     // métodos para acessar os atributos
-
-    // pega o id do funcionário
-    public int getId(){
-        return id;
-    }
-
-    // pega o nome do funcionário
-    public String getnome(){
-        return nome;
-    }
-
-    // pega o CPF do funcionário
-    public String getcpf(){
-        return cpf;
-    }
 
     // pega a data de admissão do funcionário
     public LocalDateTime dataAdmissao(){
         return dataAdmissao;
     }
 
-    // define o id do funcionário
-    public void setId(int id){
-        this.id = id;
-    }
-
-    // define o nome do funcionário
-    public void setnome(String nome){
-        this.nome = nome;
-    }
-
     // define a data de admissão do funcionário
     public void setdataAdmissao(LocalDateTime dataAdmissao){
         this.dataAdmissao = dataAdmissao;
-    }
-
-    // define o CPF do funcionário
-    public void setcpf(String cpf){
-        this.cpf = cpf;
     }
 
     // pega o departamento do funcionário
@@ -92,6 +56,16 @@ public class Funcionario {
         this.cargo = cargo;
     }
 
+    //metódo de autenticar senha
+    @Override
+    public boolean autenticar(String senha){
+        //lógica especifica para funcionarios
+        return senha != null && senha.length() >= 6;
+    }
+    //metodo para registrar ponto
+    public void registrarPonto(){
+        System.out.println(nome + "registrou ponto no departamento" + departamento.getNome());
+    }
     // método que transforma o funcionário em uma string
     @Override 
     public String toString(){

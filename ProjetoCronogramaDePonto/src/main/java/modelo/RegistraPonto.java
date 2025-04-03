@@ -15,7 +15,7 @@ public class RegistraPonto {
     private LocalDateTime dataHoraEntrada; // hora em que o funcionário entrou
     private LocalDateTime dataHoraSaida; // hora em que o funcionário saiu
     private String observacao; // observações extras sobre o registro
-
+    private boolean aprovado;
     // construtor para criar um registro de ponto com todos os dados
     public RegistraPonto(int id, Funcionario funcionario, LocalDateTime entrada, LocalDateTime saida, String observacao) {
         this.id = id; // define o id do registro de ponto
@@ -34,7 +34,12 @@ public class RegistraPonto {
     public String getObservacao() {
         return observacao; // retorna a observação do registro
     }
-
+    public boolean getaprovado(){
+        return aprovado;
+    }
+    public void setAprovado(boolean aprovado){
+        this.aprovado = aprovado;
+    }
     // método para pegar o id do registro
     public int getId() {
         return id; // retorna o id do registro
@@ -85,4 +90,5 @@ public class RegistraPonto {
         if (dataHoraSaida == null) return 0; // se não houver hora de saída, não pode calcular
         return java.time.Duration.between(dataHoraEntrada, dataHoraSaida).toHours(); // calcula e retorna as horas trabalhadas
     }
+    
 }
