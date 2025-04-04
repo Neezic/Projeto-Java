@@ -1,5 +1,4 @@
 package modelo;
-
 import dao.FuncionarioDao;
 import java.time.*;
 import java.time.format.*;
@@ -64,9 +63,11 @@ public class Main {
     private static void fazerLogin() {
         System.out.print("\nCPF (digite 123 ou 456): ");
         String cpf = scanner.nextLine();
-        
-        usuarioAtual = funcionarioDAO.buscarPorCPF(cpf);
+
         usuarioAtual = funcionarioDAO.buscarGerentePorCPF(cpf);
+        if (usuarioAtual == null){
+            usuarioAtual = funcionarioDAO.buscarPorCPF(cpf);
+        } 
         
         if (usuarioAtual == null) {
             System.out.println("Usuário não encontrado!");
