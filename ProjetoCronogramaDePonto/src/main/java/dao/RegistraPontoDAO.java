@@ -6,7 +6,7 @@ import java.util.List;        // importa a interface List para retornar listas d
 import java.util.NoSuchElementException; // importa exceção para quando não encontrar um registro
 import modelo.Funcionario;   // importa a classe Funcionario para ser usada neste DAO
 import modelo.RegistraPonto; // importa a classe RegistraPonto para ser usada neste DAO
-
+import modelo.Usuario;        
 // classe RegistraPontoDAO - responsável por gerenciar os registros de ponto dos funcionários
 public class RegistraPontoDAO {
 
@@ -56,15 +56,18 @@ public class RegistraPontoDAO {
     }
 
     // método para listar todos os registros de ponto de um determinado funcionário
-    public List<RegistraPonto> listarPorFuncionario(Funcionario funcionario) {
+    public List<RegistraPonto> listarPorFuncionario(Usuario usuario) {
         List<RegistraPonto> resultado = new ArrayList<>();  // lista para armazenar os resultados
         // percorre todos os registros e adiciona os que pertencem ao funcionário
         for (RegistraPonto r : registros) {
-            if (r.getfuncionario().equals(funcionario)) {
+            if (r.getfuncionario().equals(usuario)) {
                 resultado.add(r);  // adiciona o registro à lista de resultados
             }
         }
         return resultado;  // retorna a lista de registros encontrados
+    }
+    public List<RegistraPonto> listarTodos() {
+        return new ArrayList<>(registros); // Retorna uma lista contendo todos os funcionários
     }
 }
 
