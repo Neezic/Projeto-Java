@@ -1,5 +1,5 @@
 // classe que representa o cargo de um funcionário
-/*
+/* Polimorfismo aqui Get Set
  * Fazer a classe dao dessa classe.
  * 
  */
