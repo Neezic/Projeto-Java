@@ -1,5 +1,5 @@
 // classe que representa um departamento na empresa
-/*
+/* polimorfismo aqui get set
  * 
  * Fazer a classe DAO dessa classe
  */
