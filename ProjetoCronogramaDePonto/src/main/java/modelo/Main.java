@@ -150,17 +150,17 @@ public class Main {
         }
     }
 
-    // MÉTODOS COMPARTILHADOS
+    // TRY CATCH EXCEÇÃO ERROS quando o usuário tenta registrar a entrada ou a saída, pode dar algum erro e a gente trata isso com o catch, pra não quebrar o programa e mostrar uma mensagem certinha pro usuário.
     private static void registrarEntrada() {
         try {
             pontoService.registrarEntrada((Funcionario)usuarioAtual);
             System.out.println("✅ Entrada registrada: " + 
-                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))); // o sistema lança uma exceção IllegalStateException
         } catch (IllegalStateException e) {
             System.out.println("❌ Erro: " + e.getMessage());
         }
     }
-
+   // Isso ajuda a deixar o sistema mais estável e com uma resposta mais amigável, mesmo quando dá erro
     private static void registrarSaida() {
         try {
             pontoService.registrarSaida((Funcionario)usuarioAtual);
