@@ -18,7 +18,8 @@ public class Main {
         Cargo dev = new Cargo("Desenvolvedor", 5000.00);
         Cargo gerenteCargo = new Cargo("Gerente", 8000.00);
 
-        // Cadastro de Usuario e polimorfismo classe Gerente herda de Funcionario. O Gerente pode ser tratado como um Funcionario devido à herança. dsd compartilhem a mesma classe base
+        // Cadastro de Usuario e POLIMORFISMO classe Gerente herda de Funcionario.
+        // O Gerente pode ser tratado como um Funcionario devido à herança. dsd compartilhem a mesma classe base
         Funcionario funcionario = new Funcionario("João", "12345678900", ti, dev);
         Gerente gerente = new Gerente("Maria", "98765432100", ti, gerenteCargo);
         
@@ -151,12 +152,14 @@ public class Main {
         }
     }
 
-    // TRY CATCH EXCEÇÃO ERROS quando o usuário tenta registrar a entrada ou a saída, pode dar algum erro e a gente trata isso com o catch, pra não quebrar o programa e mostrar uma mensagem certinha pro usuário.
+    // TRY CATCH EXCEÇÃO ERROS quando o usuário tenta registrar a entrada ou a saída, 
+    // pode dar algum erro e a gente trata isso com o catch, pra não quebrar o programa e mostrar uma mensagem certinha pro usuário.
     private static void registrarEntrada() {
         try {
             pontoService.registrarEntrada((Funcionario)usuarioAtual);
             System.out.println("✅ Entrada registrada: " + 
-                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))); // o sistema lança uma exceção IllegalStateException
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"))); 
+            // o sistema lança uma exceção IllegalStateException
         } catch (IllegalStateException e) {
             System.out.println("❌ Erro: " + e.getMessage());
         }
