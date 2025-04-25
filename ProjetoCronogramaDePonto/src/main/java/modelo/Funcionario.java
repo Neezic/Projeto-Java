@@ -15,7 +15,8 @@ public class Funcionario extends Usuario{
     // atributos que definem um funcionário
     private LocalDateTime dataAdmissao;  // data de admissão do funcionário
     private Departamento departamento;  // departamento em que o funcionário trabalha
-    private Cargo cargo;  // cargo do funcionário que tem um cargo. Isso caracteriza uma relação de composição, onde uma classe contém outra como parte de sua estrutura.
+    private Cargo cargo;  // cargo do funcionário que tem um cargo.
+    // Isso caracteriza uma relação de composição, onde uma classe contém outra como parte de sua estrutura.
 
     // construtor que define o nome, cpf e data de admissão
     public Funcionario(String nome, String cpf,Departamento departamento, Cargo cargo){
