@@ -17,7 +17,7 @@ public class Main {
         Cargo dev = new Cargo("Desenvolvedor", 5000.00);
         Cargo gerenteCargo = new Cargo("Gerente", 8000.00);
 
-        // Cadastro de usuários
+        // Cadastro de Usuario e polimorfismo classe Gerente herda de Funcionario. O Gerente pode ser tratado como um Funcionario devido à herança. dsd compartilhem a mesma classe base
         Funcionario funcionario = new Funcionario("João", "12345678900", ti, dev);
         Gerente gerente = new Gerente("Maria", "98765432100", ti, gerenteCargo);
         
