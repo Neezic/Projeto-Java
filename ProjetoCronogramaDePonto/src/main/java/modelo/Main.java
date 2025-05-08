@@ -40,9 +40,12 @@ public class Main {
         }
     }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
   
 =======
+=======
+>>>>>>> Stashed changes
     
     // criando dois funcionários de exemplo
     private static void cadastrarFuncionariosExemplo() {
@@ -153,6 +156,9 @@ public class Main {
     private static void consultarRegistros() {
         System.out.println("\n=== MEUS REGISTROS ===");
         var registros = service.listarRegistros(funcionarioAtual);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         
         switch (opcao) {
