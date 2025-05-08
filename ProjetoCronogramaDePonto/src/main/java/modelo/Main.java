@@ -8,7 +8,7 @@ import servico.PontoService;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
-    private static PontoService pontoService = new PontoService();
+    private static PontoService service = new PontoService();
     private static FuncionarioDao funcionarioDAO = new FuncionarioDao();
     private static Usuario usuarioAtual = null;
 
@@ -39,8 +39,22 @@ public class Main {
             }
         }
     }
+<<<<<<< Updated upstream
 
   
+=======
+    
+    // criando dois funcionários de exemplo
+    private static void cadastrarFuncionariosExemplo() {
+        Departamento ti = new Departamento("TI"); // Associação estabelecida.
+        Funcionario joao = new Funcionario("João Silva", "12345678900",ti,LocalDateTime.now());
+        Departamento rh = new Departamento("RH");
+        Funcionario maria = new Funcionario("Maria Souza", "98765432100",rh, LocalDateTime.now());
+        rh.adicionarFuncionario(maria); // Agregação, Maria pode existir sem o departamento.
+        funcionarioDAO.salvar(joao);
+        funcionarioDAO.salvar(maria);
+    }
+>>>>>>> Stashed changes
 
     // MENU DE LOGIN (igual ao seu original)
     private static void exibirMenuLogin() {
@@ -88,7 +102,58 @@ public class Main {
         System.out.print("Escolha: ");
         
         int opcao = scanner.nextInt();
+<<<<<<< Updated upstream
         scanner.nextLine();
+=======
+        scanner.nextLine(); // limpar buffer
+
+        // controlando a escolha do usuário no menu
+        switch (opcao) {
+            case 1:
+                registrarEntrada();
+                break;
+            case 2:
+                registrarSaida();
+                break;
+            case 3:
+                consultarRegistros();
+                break;
+            case 4:
+                funcionarioAtual = null;
+                System.out.println("Logout realizado com sucesso!");
+                break;
+            default:
+                System.out.println("Opção inválida!");
+        }
+    }
+
+    // registra a entrada do funcionário
+    private static void registrarEntrada() {
+        try {
+            service.registrarEntrada(funcionarioAtual,registroDAO);
+            System.out.println("\nEntrada registrada com sucesso em: " + 
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+        } catch (IllegalStateException e) {
+            System.out.println("\nErro: " + e.getMessage());
+        }
+    }
+
+    // registra a saída do funcionário
+    private static void registrarSaida() {
+        try {
+            service.registrarSaida(funcionarioAtual);
+            System.out.println("\nSaída registrada com sucesso em: " + 
+                LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")));
+        } catch (IllegalStateException e) {
+            System.out.println("\nErro: " + e.getMessage());
+        }
+    }
+
+    // consulta os registros de entrada e saída do funcionário
+    private static void consultarRegistros() {
+        System.out.println("\n=== MEUS REGISTROS ===");
+        var registros = service.listarRegistros(funcionarioAtual);
+>>>>>>> Stashed changes
         
         switch (opcao) {
             case 1 -> registrarEntrada();
