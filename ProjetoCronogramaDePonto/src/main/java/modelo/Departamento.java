@@ -14,7 +14,7 @@ public class Departamento {
     private int id;  // id único do departamento
     private String nome;  // nome do departamento
     private Funcionario gerente;  // gerente responsável pelo departamento
-    private List<Funcionario> funcionarios = new ArrayList<>();  // lista de funcionários do departamento
+    private List<Funcionario> funcionarios;  // lista de funcionários do departamento
 
     // construtor sem parâmetros
     public Departamento(){}
@@ -22,6 +22,7 @@ public class Departamento {
     // construtor que define o nome do departamento
     public Departamento(String nome){
         this.nome = nome;
+        this.funcionarios = new ArrayList<>();
     }
 
     // métodos para acessar e definir os atributos
@@ -63,8 +64,7 @@ public class Departamento {
 
     // adiciona um funcionário ao departamento
     public void adicionarFuncionario(Funcionario funcionario){
-        this.funcionarios.add(funcionario);
-        funcionario.setDepartamento(this);  // atribui o departamento ao funcionário
+        funcionarios.add(funcionario); // atribui o departamento ao funcionário
     }
 
     // remove um funcionário do departamento

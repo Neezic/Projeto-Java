@@ -23,6 +23,7 @@ public class Funcionario extends Usuario{
         super(nome,cpf);
         this.departamento = departamento;
         this.cargo = cargo;
+        departamento.adicionarFuncionario(this);
     }
 
     // métodos para acessar os atributos

@@ -11,8 +11,10 @@ import java.util.List;
 
 public class PontoService{
     // instanciando o objeto que vai manipular os registros de ponto no banco de dados
-    private RegistraPontoDAO registroDAO = new RegistraPontoDAO();
-
+    private  final RegistraPontoDAO registroDAO;
+    public PontoService(RegistraPontoDAO registroDAO){
+        this.registroDAO = registroDAO;
+    }
     // método para registrar a entrada do funcionário
     public void registrarEntrada(Usuario usuario) throws IllegalStateException{
         // verifica se o funcionário é nulo, caso seja, lança uma exceção
