@@ -14,7 +14,7 @@ public class Departamento {
     private int id;  // id único do departamento
     private String nome;  // nome do departamento
     private Funcionario gerente;  // gerente responsável pelo departamento
-    private List<Funcionario> funcionarios;  // lista de funcionários do departamento
+    private List<Funcionario> funcionarios;  // lista de funcionários do departamento e Agregação (1 Departamento contem N Funcionarios)
 
     // construtor sem parâmetros
     public Departamento(){}
