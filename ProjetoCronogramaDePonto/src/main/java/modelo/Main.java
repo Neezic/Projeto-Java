@@ -27,6 +27,8 @@ public class Main {
         // Cadastro de usuários
         Funcionario funcionario = new Funcionario("João", "123", ti, dev);
         Gerente gerente = new Gerente("Maria", "456", ti, gerenteCargo);
+
+        //Agregação do Departamento e Funcionario, se Departamento deixar de existir Funcionario continua existindo.
         
         funcionarioDAO.salvar(funcionario);
         funcionarioDAO.salvar(gerente);
