@@ -11,12 +11,12 @@ import java.util.List;
 
 public class PontoService{
     // instanciando o objeto que vai manipular os registros de ponto no banco de dados
-    private  final RegistraPontoDAO registroDAO;
-    public PontoService(RegistraPontoDAO registroDAO){
+    private  final RegistraPontoDAO registroDAO; // Dependência (injetada via construtor)
+    public PontoService(RegistraPontoDAO registroDAO){ // Injeção de Dependencia
         this.registroDAO = registroDAO;
     }
     // método para registrar a entrada do funcionário
-    public void registrarEntrada(Usuario usuario) throws IllegalStateException{
+    public void registrarEntrada(Usuario usuario) throws IllegalStateException{ // Dependencia do parametro Funcionario
         // verifica se o funcionário é nulo, caso seja, lança uma exceção
         if (usuario == null){
             throw new IllegalArgumentException("Funcionario não pode ser nulo");
@@ -36,8 +36,8 @@ public class PontoService{
             agora = agora.plusHours(1);
         }
         // cria um novo registro de entrada para o funcionário e o salva
-        RegistraPonto novoRegistro = new RegistraPonto(funcionario, agora);
-        registroDAO.salvar(novoRegistro);
+        RegistraPonto novoRegistro = new RegistraPonto(funcionario, agora); // Dependencia de RegistraPonto
+        registroDAO.salvar(novoRegistro); // Dependencia do metódo
         System.out.println("Entrada registrada para" + funcionario.getnome() 
                             + "(" + usuario.getClass().getSimpleName() + ")");
     }
