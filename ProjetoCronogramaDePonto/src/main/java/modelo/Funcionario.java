@@ -14,7 +14,7 @@ public class Funcionario extends Usuario{
 
     // atributos que definem um funcionário
     private LocalDateTime dataAdmissao;  // data de admissão do funcionário
-    private Departamento departamento;  // departamento em que o funcionário trabalha
+    private Departamento departamento;  // departamento em que o funcionário trabalha e Associação (1 Funcionario está associado a 1 Departamento
     private Cargo cargo;  // cargo do funcionário que tem um cargo.
     // Isso caracteriza uma relação de composição, onde uma classe contém outra como parte de sua estrutura.
 
@@ -23,7 +23,7 @@ public class Funcionario extends Usuario{
         super(nome,cpf);
         this.departamento = departamento;
         this.cargo = cargo;
-        departamento.adicionarFuncionario(this);
+        departamento.adicionarFuncionario(this); // Associação Bidirecional.
     }
 
     // métodos para acessar os atributos
