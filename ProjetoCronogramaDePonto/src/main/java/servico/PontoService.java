@@ -1,10 +1,10 @@
-package servico;
+package main.java.servico;
 
-import dao.RegistraPontoDAO;
-import modelo.Funcionario;
-import modelo.Gerente;
-import modelo.RegistraPonto;
-import modelo.Usuario;
+import main.java.dao.RegistraPontoDAO;
+import main.java.modelo.Funcionario;
+import main.java.modelo.Gerente;
+import main.java.modelo.RegistraPonto;
+import main.java.modelo.Usuario;
 
 import java.time.LocalDateTime;
 import java.util.List;

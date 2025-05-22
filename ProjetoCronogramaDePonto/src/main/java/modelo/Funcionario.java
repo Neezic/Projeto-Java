@@ -6,7 +6,7 @@
  * 
  */
 // classe que representa um funcionário na empresa
-package modelo;
+package main.java.modelo;
 
 import java.time.LocalDateTime;
 

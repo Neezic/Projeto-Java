@@ -3,7 +3,7 @@
  * Fazer a classe dao dessa classe.
  * 
  */
-package modelo;
+package main.java.modelo;
 
 // classe Cargo
 public class Cargo {

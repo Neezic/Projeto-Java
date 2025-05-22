@@ -3,10 +3,11 @@
  * 
  * Fazer a classe DAO dessa classe
  */
-package modelo;
+package main.java.modelo;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class Departamento {
     
@@ -14,7 +15,7 @@ public class Departamento {
     private int id;  // id único do departamento
     private String nome;  // nome do departamento
     private Funcionario gerente;  // gerente responsável pelo departamento
-    private List<Funcionario> funcionarios;  // lista de funcionários do departamento e Agregação (1 Departamento contem N Funcionarios)
+    private Set<Funcionario> funcionarios;  // lista de funcionários do departamento e Agregação (1 Departamento contem N Funcionarios)
 
     // construtor sem parâmetros
     public Departamento(){}
@@ -22,7 +23,7 @@ public class Departamento {
     // construtor que define o nome do departamento
     public Departamento(String nome){
         this.nome = nome;
-        this.funcionarios = new ArrayList<>();
+        this.funcionarios = new HashSet<>();
     }
 
     // métodos para acessar e definir os atributos
@@ -58,7 +59,7 @@ public class Departamento {
     }
 
     // pega a lista de funcionários do departamento
-    public List<Funcionario> getFuncionarios(){
+    public Set<Funcionario> getFuncionarios(){
         return funcionarios;
     }
 
@@ -73,9 +74,4 @@ public class Departamento {
         funcionario.setDepartamento(null);  // remove o departamento do funcionário
     }
 
-    // método que transforma o departamento em uma string
-    @Override
-    public String toString(){
-        return "Departamento [id="+id+", nome= "+nome+", gerente="+ (gerente != null ? gerente.getnome(): "Não definido") + "]";
-    }
 }

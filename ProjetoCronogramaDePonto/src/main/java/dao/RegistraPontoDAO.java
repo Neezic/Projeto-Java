@@ -1,12 +1,12 @@
 // pacote onde essa classe esta armazenada
-package dao;
+package main.java.dao;
 
 import java.util.ArrayList;   // importa a classe ArrayList para armazenar registros de ponto
 import java.util.List;        // importa a interface List para retornar listas de registros
 import java.util.NoSuchElementException; // importa exceção para quando não encontrar um registro
-import modelo.Funcionario;   // importa a classe Funcionario para ser usada neste DAO
-import modelo.RegistraPonto; // importa a classe RegistraPonto para ser usada neste DAO
-import modelo.Usuario;        
+import main.java.modelo.Funcionario;   // importa a classe Funcionario para ser usada neste DAO
+import main.java.modelo.RegistraPonto; // importa a classe RegistraPonto para ser usada neste DAO
+import main.java.modelo.Usuario;        
 // classe RegistraPontoDAO - responsável por gerenciar os registros de ponto dos funcionários
 public class RegistraPontoDAO {
 

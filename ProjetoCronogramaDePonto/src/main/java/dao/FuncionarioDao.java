@@ -1,12 +1,12 @@
 // pacote onde essa classe está armazenada
-package dao;
+package main.java.dao;
 
 import java.util.ArrayList;  // importa a classe ArrayList para armazenar listas de funcionários
 import java.util.HashMap;    // importa a classe HashMap para armazenar funcionários em pares (ID, Funcionario)
 import java.util.List;       // importa a interface List para criar listas dinâmicas
 import java.util.Map;        // importa a interface Map para armazenar dados como chave-valor
-import modelo.Funcionario;   // importa a classe Funcionario para ser usada nesta classe
-import modelo.Gerente;
+import main.java.modelo.Funcionario;   // importa a classe Funcionario para ser usada nesta classe
+import main.java.modelo.Gerente;
 // classe FuncionarioDao - Responsável por gerenciar os funcionários em memória (como um banco de dados temporário)
 public class FuncionarioDao {
     

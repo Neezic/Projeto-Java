@@ -1,10 +1,10 @@
-package modelo;
-import dao.FuncionarioDao;
+package main.java.modelo;
+import main.java.dao.FuncionarioDao;
 import java.time.*;
 import java.time.format.*;
 import java.util.*;
-import servico.PontoService;
-import dao.RegistraPontoDAO;
+import main.java.servico.PontoService;
+import main.java.dao.RegistraPontoDAO;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);

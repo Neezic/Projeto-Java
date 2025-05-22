@@ -1,15 +1,17 @@
-package dao;
+package main.java.dao;
 
 import java.util.ArrayList;  // importa a classe ArrayList para armazenar listas de funcionários
-import java.util.HashMap;    // importa a classe HashMap para armazenar funcionários em pares (ID, Funcionario)
 import java.util.List;       // importa a interface List para criar listas dinâmicas
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.*;
+import main.java.modelo.Cargo;
+
 public class CargoDAO {
     private Map<String, Cargo> cargos = new TreeMap<>();
     
     public void salvar (Cargo cargo){
-        cargos.put(cargo.getnome(),cargo);
+        cargos.put(cargo.getNome(),cargo);
     }
 
     public List<Cargo> listarTodos(){
@@ -19,9 +21,7 @@ public class CargoDAO {
     public Cargo buscarPorNome(String nome){
         return cargos.get(nome);
     }
-    public Cargo buscarPorNome(String nome){
-        return cargos.get(nome);
-    }
+
     public List<Cargo> filtrarPorSalarioMinimo(double salarioMinimo){
         return cargos.values().stream()
         .filter(c -> c.getsalarioBase() >= salarioMinimo)
