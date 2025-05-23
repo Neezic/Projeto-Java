@@ -16,6 +16,7 @@ public class Funcionario extends Usuario{
     private LocalDateTime dataAdmissao;  // data de admissão do funcionário
     private Departamento departamento;  // departamento em que o funcionário trabalha e Associação (1 Funcionario está associado a 1 Departamento
     private Cargo cargo;  // cargo do funcionário que tem um cargo.
+    private calcularSalarioStrategy calculoSalarioStrategy = new calcularSalarioBase();
     // Isso caracteriza uma relação de composição, onde uma classe contém outra como parte de sua estrutura.
 
     // construtor que define o nome, cpf e data de admissão
