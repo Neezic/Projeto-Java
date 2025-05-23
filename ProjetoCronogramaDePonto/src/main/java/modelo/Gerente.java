@@ -1,9 +1,10 @@
 package main.java.modelo;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 public class Gerente extends Funcionario {
 
-    private List<Departamento> departamentosGerenciados;
+    private List<Departamento> departamentosGerenciados = new CopyOnWriteArrayList<>();
 
     public Gerente(String nome, String cpf, Departamento departamento, Cargo cargo){
         super(nome,cpf,departamento,cargo);

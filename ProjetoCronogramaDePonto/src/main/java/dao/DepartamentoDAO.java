@@ -1,14 +1,16 @@
 package main.java.dao;
 
-import java.util.HashMap;
-import java.util.stream.Collectors;
+
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 import main.java.modelo.Departamento;
 import main.java.modelo.Funcionario;
 
 public class DepartamentoDAO {
-    private Map<String,Departamento> departamentos = new HashMap<>();
+    private Map<String,Departamento> departamentos = new ConcurrentHashMap<>();
 
     public void salvar(Departamento departamento){
         if (departamento == null || departamento.getNome() == null) {
@@ -24,6 +26,12 @@ public class DepartamentoDAO {
             Departamento::getFuncionarios
             ));
 
+    }
+    public List<Departamento>buscarPorPrefixo(String prefixo){
+        return departamentos.entrySet().stream()
+        .filter(e -> e.getKey().startsWith(prefixo))
+        .map(Map.Entry::getValue)
+        .collect(Collectors.toList());
     }
    
     public Map<Departamento, Double> mediaSalarialPorDepartamento() {
