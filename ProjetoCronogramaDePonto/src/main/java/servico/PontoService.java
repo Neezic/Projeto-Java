@@ -1,17 +1,19 @@
 package main.java.servico;
 
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 import main.java.dao.RegistraPontoDAO;
 import main.java.modelo.Funcionario;
 import main.java.modelo.Gerente;
+import main.java.modelo.PontoObserver;
 import main.java.modelo.RegistraPonto;
 import main.java.modelo.Usuario;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 public class PontoService{
     // instanciando o objeto que vai manipular os registros de ponto no banco de dados
     private  final RegistraPontoDAO registroDAO; // Dependência (injetada via construtor)
+    private List<PontoObserver> observers = new ArrayList<>();
     public PontoService(RegistraPontoDAO registroDAO){ // Injeção de Dependencia
         this.registroDAO = registroDAO;
     }
@@ -39,7 +41,8 @@ public class PontoService{
         RegistraPonto novoRegistro = new RegistraPonto(funcionario, agora); // Dependencia de RegistraPonto
         registroDAO.salvar(novoRegistro); // Dependencia do metódo
         System.out.println("Entrada registrada para" + funcionario.getnome() 
-                            + "(" + usuario.getClass().getSimpleName() + ")");
+         + "(" + usuario.getClass().getSimpleName() + ")");
+        notificarObservers(novoRegistro, "Nova entrada registrada");
     }
 
     // método para registrar a saída do funcionário
@@ -51,6 +54,7 @@ public class PontoService{
         Funcionario funcionario = (Funcionario) usuario;
         // busca o registro de entrada que está aberto para o funcionário
         RegistraPonto registro = registroDAO.buscarRegistroAberto(funcionario);
+        notificarObservers(registro, "Saída registrada");
 
         // verifica se não existe um registro de entrada aberto
         if (registro == null) {
@@ -73,5 +77,12 @@ public class PontoService{
     // método para listar os registros de ponto do funcionário
     public List <RegistraPonto> listarRegistros(Usuario usuario){
         return registroDAO.listarPorFuncionario(usuario);
+    }
+
+    public void addObserver(PontoObserver observer) {
+        observers.add(observer);
+    }
+    public void notificarObservers(RegistraPonto registro, String mensagem) {
+        observers.forEach(o -> o.notificarRegistro(registro, mensagem));
     }
 }
