@@ -59,6 +59,14 @@ public class Funcionario extends Usuario{
         this.cargo = cargo;
     }
 
+    public void setCalculoSalarioStrategy(calcularSalarioStrategy strategy) {
+        this.calculoSalarioStrategy = strategy;
+    }
+    
+    public double calcularSalario() {
+        return calculoSalarioStrategy.calcularSalario(this);
+    }
+
     //metódo de autenticar senha
     @Override
     public boolean autenticar(String senha){
