@@ -7,15 +7,17 @@
 */
 
 package main.java.modelo;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class RegistraPonto {
+public class RegistraPonto implements Serializable {
     private int id; // id único do registro de ponto
     private Funcionario funcionario; // funcionário que está registrando o ponto
     private LocalDateTime dataHoraEntrada; // hora em que o funcionário entrou
     private LocalDateTime dataHoraSaida; // hora em que o funcionário saiu
     private String observacao; // observações extras sobre o registro
     private boolean aprovado;
+    private static final long serialVersionUID = 1L; 
     // construtor para criar um registro de ponto com todos os dados
     public RegistraPonto(int id, Funcionario funcionario, LocalDateTime entrada, LocalDateTime saida, String observacao) {
         this.id = id; // define o id do registro de ponto

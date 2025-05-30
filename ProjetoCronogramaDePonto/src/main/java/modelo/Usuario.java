@@ -1,10 +1,13 @@
 package main.java.modelo;
 
-public abstract class Usuario {
+import java.io.Serializable;
+
+public abstract class Usuario implements Serializable {
     protected int id;
     protected String nome;
     protected String cpf;
 
+    private static final long serialVersionUID = 1L;
 
     public Usuario(String nome, String cpf){
         this.nome = nome;

@@ -6,7 +6,10 @@
 package main.java.modelo;
 
 // classe Cargo
-public class Cargo {
+
+import java.io.Serializable;
+
+public class Cargo implements Serializable {
     
     // atributos que definem o cargo
     private int id;           // id único do cargo
@@ -14,6 +17,7 @@ public class Cargo {
     private double salarioBase;  // salário base do cargo
     private String beneficios;   // benefícios que o cargo oferece
     private String nivel;        // nível do cargo (por exemplo, Júnior, Pleno, Sênior)
+    private static final long serialVersionUID = 1L; 
 
     // construtor sem parâmetros
     public Cargo() {}

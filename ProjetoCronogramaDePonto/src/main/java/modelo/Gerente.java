@@ -5,6 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class Gerente extends Funcionario {
 
     private List<Departamento> departamentosGerenciados = new CopyOnWriteArrayList<>();
+    private static final long serialVersionUID = 1L; 
 
     public Gerente(String nome, String cpf, Departamento departamento, Cargo cargo){
         super(nome,cpf,departamento,cargo);

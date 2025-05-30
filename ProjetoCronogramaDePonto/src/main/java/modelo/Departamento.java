@@ -6,17 +6,18 @@
 package main.java.modelo;
 
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Departamento {
+public class Departamento implements Serializable {
     
     // atributos que definem o departamento
     private int id;  // id único do departamento
     private String nome;  // nome do departamento
     private Funcionario gerente;  // gerente responsável pelo departamento
-    private Set<Funcionario> funcionarios;  // lista de funcionários do departamento e Agregação (1 Departamento contem N Funcionarios)
-
+    private HashSet<Funcionario> funcionarios;  // lista de funcionários do departamento e Agregação (1 Departamento contem N Funcionarios)
+    private static final long serialVersionUID = 1L; 
     // construtor sem parâmetros
     public Departamento(){}
 
