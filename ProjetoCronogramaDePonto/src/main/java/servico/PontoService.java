@@ -35,7 +35,7 @@ public class PontoService{
         }
         LocalDateTime agora = LocalDateTime.now();
         if (usuario instanceof Gerente){
-            agora = agora.plusHours(1);
+            agora = agora.plusHours(0);
         }
         // cria um novo registro de entrada para o funcionário e o salva
         RegistraPonto novoRegistro = new RegistraPonto(funcionario, agora); // Dependencia de RegistraPonto
@@ -60,12 +60,10 @@ public class PontoService{
         if (registro == null) {
             throw new IllegalArgumentException("Não existe registro de entrada aberto para este funcionário");
         }
-        
-        // se o registro de entrada existir, registra a saída e atualiza o registro
-        if (registro != null){
-            registro.setSaida(LocalDateTime.now());
-            registroDAO.atualizar(registro);
-        }
+
+        registro.setSaida(LocalDateTime.now()); 
+        registroDAO.atualizar(registro);
+        notificarObservers(registro, "Saída registrada");
     }
     
     public RegistraPonto buscarRegistroAberto(Funcionario funcionario) {
